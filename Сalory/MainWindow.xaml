@@ -1,0 +1,28 @@
+﻿<Window x:Class="Сalory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Сalory"
+        mc:Ignorable="d"
+        Title="MyCalory" Height="450" Width="800">
+    <StackPanel>
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem Header="Справка" Click="MenuItem_OnClick"/>
+            <MenuItem Header="Назад" Click="Button_DayBefore_OnClick"/>
+            <MenuItem Header="Сегодня" Click="Button_Today_OnClick"/>
+            <MenuItem Header="Вперед" Click="Button_NextDay_OnClick"/>
+            <MenuItem x:Name="_switch" Click="MenuItem_OnSwitch"/>
+            <MenuItem Header="Charts" Click="MenuItem_OnCharts"/>
+        </Menu>
+        <DataGrid x:Name="dgMainTable" FontSize="16" FontWeight="Bold" Margin="5" Loaded="DgMainTable_OnLoaded" AutoGenerateColumns="False" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path = Name}" IsReadOnly="False" Header="Наименование" Width="180"/>
+                    <DataGridTextColumn Binding="{Binding Path = Calory}" IsReadOnly="True" Header="Энергия" Width="100"/>
+                    <DataGridTextColumn Binding="{Binding Path = Proteins}" IsReadOnly="False" Header="Proteins" Width="100"/>
+                    <DataGridTextColumn Binding="{Binding Path = Fats}" IsReadOnly="False" Header="Fats" Width="100"/>
+                    <DataGridTextColumn Binding="{Binding Path = Carbs}" IsReadOnly="False" Header="Carbs" Width="100"/>
+                </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>
